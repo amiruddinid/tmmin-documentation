@@ -1,69 +1,27 @@
 ---
 part: Documentation
-title: Using MDX
+title: Using NextBook
 ---
 
-## What Is MDX?
+# MDX
+## What's MDX?
 
-MDX to markdown is the same as JSX to JS. To quote the [original site](https://mdxjs.com/),
+**MDX** is a syntax that combines Markdown (a lightweight markup language) and **JSX** (JavaScript XML). With MDX, you can write markdown for content, but you can also embed React components or other JavaScript functionality directly within that markdown.
 
-> MDX is an authorable format that lets you seamlessly write JSX in your Markdown documents. You can import components, such as interactive charts or alerts, and embed them within your content. This makes writing long-form content with components a blast 🚀.
+## Why use MDX ?
 
-... and this one:
+1.  **Dynamic and Interactive Content**:
 
-> Writing is fun again when you combine components, that can even be dynamic or load data, with the simplicity of Markdown for long-form content.
+   One of the main benefits of using MDX is that it allows you to embed React components directly within the content. This means you can integrate dynamic, interactive UI elements into what would normally be static markdown content.
+2. **Content Authoring Flexibility**:
 
-Basically, renaming your `.md` file to `.mdx` gives you ability to import and use React components as if it was a normal React or Next.js app.
+   MDX allows content creators (e.g., writers, marketers) to write content using simple Markdown syntax, but without losing the ability to add advanced interactivity or layout components.
+3. **Easier to Integrate React Components**:
 
-Here is a small demo video for curious:
+   Since MDX allows you to embed JSX directly into markdown, you can easily integrate React components into your content. This is ideal for building custom, reusable components that might need to be injected into multiple markdown pages, such as code samples, tables, alerts, and charts.
+4. **Type Safety with TypeScript**:
 
+   MDX works well with TypeScript, which provides type safety. You can use TypeScript to validate props in your components, ensuring that the data being passed through the components is correct and adheres to your expected types.
+5. **Component Reusability**:
 
-<iframe
-  width='100%'
-  height='400'
-  src='https://www.youtube-nocookie.com/embed/d2sQiI5NFAM'
-  frameBorder='0'
-  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-  allowFullScreen
-></iframe>
-
-## Using Custom Components
-
-Say we have a basic React counter component like this:
-
-```jsx title=components/example-counter.jsx
-import React, { useState } from 'react'
-export default function Counter() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className='border border-gray-500 p-2 m-10 rounded-md bg-gray-700 text-gray-100'>
-      <p>You clicked {count} times!</p>
-      <button
-        onClick={() => setCount(count + 1)}
-        className='rounded border border-gray-500 bg-gray-900 p-1 mt-2'
-      >
-        Click me
-      </button>
-    </div>
-  )
-}
-```
-
-If you need to use components in your markdown content files, use `.mdx` extension, and provide any custom components through the `components/component-mapper.jsx` file. Then include it in your `.mdx` file and display it just like in React application:
-
-``` markdown
-### Example Counter Component
-<Counter />
-```
-
-becomes:
-
-### Example Counter Component
-<Counter />
-
-Voila! This way you can create dynamic components for your documentation like never before. Live code editors, quizes, exams, cheatsheets, comments, you name it. Possibilities are endless. Notice that you can use tailwindcss classnames in components for styling.
-
-## More MDX Wizardry
-
-For more information what can be achieved with MDX, see the [official site](https://mdxjs.com/).
+   MDX allows you to define and reuse custom components across multiple pieces of content. For example, a "code block" component, a "callout" component, or a "video embed" component can be reused wherever needed in your markdown files without needing to duplicate content.
